@@ -24,6 +24,8 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AccelerateInterpolator
+import android.view.animation.LinearInterpolator
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.ImageView
@@ -159,6 +161,17 @@ class MainActivity : AppCompatActivity() {
 
         newStar.translationX = Math.random().toFloat() *
                 containerW - starW / 2
+
+        val mover = ObjectAnimator.ofFloat(
+            newStar, View.TRANSLATION_Y,
+            -starH, containerH + starH
+        )
+        mover.interpolator = AccelerateInterpolator(1f)
+        val rotator = ObjectAnimator.ofFloat(
+            newStar, View.ROTATION,
+            (Math.random() * 1080).toFloat()
+        )
+        rotator.interpolator = LinearInterpolator()
     }
 
 }
