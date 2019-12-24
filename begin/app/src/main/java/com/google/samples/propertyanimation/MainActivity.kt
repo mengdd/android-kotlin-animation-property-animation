@@ -124,7 +124,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun colorizer() {
         var animator =
-            ObjectAnimator.ofInt(star.parent, "backgroundColor", Color.BLACK, Color.RED).start()
+            ObjectAnimator.ofArgb(star.parent, "backgroundColor", Color.BLACK, Color.RED).start()
     }
 
     private fun shower() {
